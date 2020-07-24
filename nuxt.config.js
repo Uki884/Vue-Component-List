@@ -47,7 +47,15 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    proxy: true
+  },
+  proxy: {
+    '/api/': {
+      target: 'https://zipcloud.ibsnet.co.jp/api/search',
+      pathRewrite: { '^/api/': '' }
+    }
+  },
   /*
    ** Build configuration
    */

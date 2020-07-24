@@ -27,6 +27,18 @@
         </FormComponent>
       </div>
     </div>
+    <div class="component">
+      <div class="component__header">
+        郵便番号取得
+      </div>
+      <div class="component__item">
+        <FormComponent label="ベーシックなやつ">
+          <template slot="content">
+            <PostalCode v-model="postalCode" />
+          </template>
+        </FormComponent>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -35,11 +47,12 @@
 import BaseInputText from '@/components/Atoms/InputText/BaseInputText.vue'
 import BaseSelectBox from '@/components/Atoms/SelectBox/BaseSelectBox.vue'
 import FormComponent from '@/components/Atoms/Form/FormComponent.vue'
+import PostalCode from '@/components/Atoms/Form/PostalCode.vue'
 export default {
-  components: { FormComponent, BaseInputText, BaseSelectBox },
+  components: { FormComponent, BaseInputText, BaseSelectBox, PostalCode },
   data() {
     return {
-      test: '',
+      postalCode: '',
       options: [
         { text: 'test', value: 1 },
         { text: 'test', value: 2 },
