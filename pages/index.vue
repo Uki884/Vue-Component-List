@@ -1,84 +1,51 @@
 <template>
-  <div class="components">
-    <div class="components__header">
-      自作コンポーネント一覧
+  <div class="index">
+    <div class="index__tab">
+      <TabItem v-model="currentTab" :id="0" text="コンポーネント一覧" />
+      <TabItem v-model="currentTab" :id="1" text="メソッド一覧" />
     </div>
-    <div class="component">
-      <div class="component__header">
-        Input Text
-      </div>
-      <div class="component__item">
-        <FormComponent label="ベーシックなやつ">
-          <template slot="content">
-            <BaseInputText />
-          </template>
-        </FormComponent>
-      </div>
-    </div>
-    <div class="component">
-      <div class="component__header">
-        SelectBox
-      </div>
-      <div class="component__item">
-        <FormComponent label="ベーシックなやつ">
-          <template slot="content">
-            <BaseSelectBox v-model="test" :options="options" key-name="text" />
-          </template>
-        </FormComponent>
-      </div>
-    </div>
-    <div class="component">
-      <div class="component__header">
-        郵便番号取得
-      </div>
-      <div class="component__item">
-        <FormComponent label="ベーシックなやつ">
-          <template slot="content">
-            <PostalCode v-model="postalCode" />
-          </template>
-        </FormComponent>
-      </div>
-    </div>
+    <keep-alive>
+      <component :is="visibleTab" />
+    </keep-alive>
   </div>
 </template>
 
 <script>
-// import BaseForm from '@/components/Atoms/Form/BaseForm.vue'
-import BaseInputText from '@/components/Atoms/InputText/BaseInputText.vue'
-import BaseSelectBox from '@/components/Atoms/SelectBox/BaseSelectBox.vue'
-import FormComponent from '@/components/Atoms/Form/FormComponent.vue'
-import PostalCode from '@/components/Atoms/Form/PostalCode.vue'
+import SelfMadeComponentsList from '@/components/Organisms/SelfMadeComponentsList.vue'
+import TabItem from '@/components/Atoms/BaseTabItem.vue'
 export default {
-  components: { FormComponent, BaseInputText, BaseSelectBox, PostalCode },
+  components: {
+    SelfMadeComponentsList,
+    TabItem
+  },
   data() {
     return {
-      postalCode: '',
-      options: [
-        { text: 'test', value: 1 },
-        { text: 'test', value: 2 },
-        { text: 'test', value: 3 }
-      ]
+      index: 0,
+      currentTab: 0
+    }
+  },
+  computed: {
+    visibleTab() {
+      let component = ''
+      switch (this.currentTab) {
+        case 0:
+          component = 'SelfMadeComponentsList'
+          break
+        case 1:
+          component = 'TabItem'
+          break
+      }
+      return component
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.components {
-  margin: 24px;
-  &__header {
-    font-size: 24px;
-    font-weight: bold;
-  }
-}
-
-.component {
-  padding: 12px;
-  border: dotted;
-  margin-bottom: 12px;
-  &__header {
-    margin: 24px;
-    text-decoration: underline;
+.index {
+  &__tab {
+    height: 64px;
+    width: 100%;
   }
 }
 </style>
