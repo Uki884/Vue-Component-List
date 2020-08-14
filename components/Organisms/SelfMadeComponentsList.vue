@@ -40,6 +40,13 @@
         </FormComponent>
       </div>
     </div>
+    <div class="component">
+      <div class="component__item">
+        <FormComponent label="googleMap">
+          <GoogleMap />
+        </FormComponent>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -49,13 +56,15 @@ import BaseSelectBox from '@/components/Atoms/SelectBox/BaseSelectBox.vue'
 import FormComponent from '@/components/Atoms/Form/FormComponent.vue'
 import PostalCode from '@/components/Atoms/Form/PostalCode.vue'
 import Micromatch from '@/components/Moleclues/Micromatch.vue'
+import GoogleMap from '@/components/Moleclues/GoogleMap.vue'
 export default {
   components: {
     FormComponent,
     BaseInputText,
     BaseSelectBox,
     PostalCode,
-    Micromatch
+    Micromatch,
+    GoogleMap
   },
   data() {
     return {
