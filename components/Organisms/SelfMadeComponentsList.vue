@@ -9,9 +9,7 @@
       </div>
       <div class="component__item">
         <FormComponent label="ベーシックなやつ">
-          <template slot="content">
-            <BaseInputText />
-          </template>
+          <BaseInputText />
         </FormComponent>
       </div>
     </div>
@@ -21,9 +19,7 @@
       </div>
       <div class="component__item">
         <FormComponent label="ベーシックなやつ">
-          <template slot="content">
-            <BaseSelectBox :options="options" key-name="text" />
-          </template>
+          <BaseSelectBox :options="options" key-name="text" />
         </FormComponent>
       </div>
     </div>
@@ -33,9 +29,14 @@
       </div>
       <div class="component__item">
         <FormComponent label="ベーシックなやつ">
-          <template slot="content">
-            <PostalCode v-model="postalCode" />
-          </template>
+          <PostalCode v-model="postalCode" />
+        </FormComponent>
+      </div>
+    </div>
+    <div class="component">
+      <div class="component__item">
+        <FormComponent label="郵便番号ワイルドカード">
+          <Micromatch />
         </FormComponent>
       </div>
     </div>
@@ -47,8 +48,15 @@ import BaseInputText from '@/components/Atoms/InputText/BaseInputText.vue'
 import BaseSelectBox from '@/components/Atoms/SelectBox/BaseSelectBox.vue'
 import FormComponent from '@/components/Atoms/Form/FormComponent.vue'
 import PostalCode from '@/components/Atoms/Form/PostalCode.vue'
+import Micromatch from '@/components/Moleclues/Micromatch.vue'
 export default {
-  components: { FormComponent, BaseInputText, BaseSelectBox, PostalCode },
+  components: {
+    FormComponent,
+    BaseInputText,
+    BaseSelectBox,
+    PostalCode,
+    Micromatch
+  },
   data() {
     return {
       postalCode: '',

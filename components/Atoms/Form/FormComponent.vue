@@ -5,7 +5,7 @@
       <span v-if="required" class="form-component__required">必須</span>
       <span v-if="caption">{{ caption }}</span>
     </div>
-    <slot name="content" />
+    <slot />
   </div>
 </template>
 
