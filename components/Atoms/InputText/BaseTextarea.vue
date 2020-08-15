@@ -2,7 +2,7 @@
   <textarea v-model="inputValue" :placeholder="placeholder" class="textarea" />
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 
 export default Vue.extend({

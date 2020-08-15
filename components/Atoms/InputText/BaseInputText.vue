@@ -2,12 +2,13 @@
   <input
     v-model="inputValue"
     :placeholder="placeholder"
+    :disabled="disabled"
     type="text"
     class="text_field"
   />
 </template>
 
-<script lang="ts">
+<script>
 export default {
   components: {},
   props: {
